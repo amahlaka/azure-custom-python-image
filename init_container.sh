@@ -24,13 +24,13 @@ eval $(printenv | awk -F= '{print "export " $1"="$2 }' >> /etc/profile)
 
 echo "$@" > /opt/startup/startupCommand
 chmod 755 /opt/startup/startupCommand
-if [[ $CUSTOM_VENV ]]; then
+if [[ $APPSETTING_CUSTOM_VENV  ]]; then
         echo "Custom Virtual enviroment set"
         cd /home/site/wwwroot/
-        if [ ! -d $CUSTOM_VENV ]; then
-                echo "Installing python venv $CUSTOM_VENV"
-                python -m venv $CUSTOM_VENV
-                . $CUSTOM_VENV/bin/activate
+        if [ ! -d $APPSETTING_CUSTOM_VENV  ]; then
+                echo "Installing python venv $APPSETTING_CUSTOM_VENV "
+                python -m venv $APPSETTING_CUSTOM_VENV 
+                . $APPSETTING_CUSTOM_VENV /bin/activate
         fi
         if [ -f "requirements.txt" ]; then
                 echo "Running pip install"
