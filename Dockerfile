@@ -18,10 +18,7 @@ RUN apt-get update \
     && pip install --upgrade pip \
     && pip install subprocess32 \
     && pip install gunicorn \ 
-    && pip install virtualenv \
-    && pip install flask \
-    && pip install flask-sqlalchemy \
-    && pip install pyodbc
+    && pip install virtualenv
 
 WORKDIR ${HOME_SITE}
 
