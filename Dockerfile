@@ -18,8 +18,9 @@ RUN apt-get update \
     && pip install --upgrade pip \
     && pip install subprocess32 \
     && pip install gunicorn \ 
-    && pip install virtualenv
-
+    && pip install virtualenv \
+    && pip install flask \
+    && pip install pyodbc
 WORKDIR ${HOME_SITE}
 
 EXPOSE 8000
