@@ -20,6 +20,7 @@ RUN apt-get update \
     && pip install gunicorn \ 
     && pip install virtualenv \
     && pip install flask \
+    && pip install flask-sqlalchemy \
     && pip install pyodbc
 WORKDIR ${HOME_SITE}
 
