@@ -38,6 +38,9 @@ if [[ $APPSETTING_CUSTOM_VENV  ]]; then
                 pip install -r requirements.txt
         fi
 fi
+echo "Replacing some strings"
+exec /home/site/wwwroot/celery-rn.sh
+
 echo "Starting CELERY daemon"
 celery worker -A app.celery --loglevel=error -D
 
