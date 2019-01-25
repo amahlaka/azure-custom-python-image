@@ -21,6 +21,8 @@ RUN apt-get update \
     && pip install virtualenv \
     && pip install flask \
     && pip install flask-sqlalchemy \
+    && pip install celery \
+    && pip install redis
     && pip install pyodbc
 WORKDIR ${HOME_SITE}
 
