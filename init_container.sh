@@ -31,12 +31,16 @@ if [[ $APPSETTING_CUSTOM_VENV  ]]; then
                 echo "Installing python venv $APPSETTING_CUSTOM_VENV "
                 python -m venv $APPSETTING_CUSTOM_VENV 
                 . $APPSETTING_CUSTOM_VENV /bin/activate
+                ./celery-rn.sh
         fi
         if [ -f "requirements.txt" ]; then
                 echo "Running pip install"
                 pip install -r requirements.txt
         fi
 fi
+echo "Starting CELERY daemon"
+celery worker -A app.celery --loglevel=error -D
+
 echo "Running python /usr/local/bin/entrypoint.py"
 
 eval "exec python -u /usr/local/bin/entrypoint.py"
