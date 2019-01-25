@@ -49,6 +49,11 @@ COPY driver.deb /home/driver.deb
 RUN ACCEPT_EULA=Y dpkg -i /home/driver.deb
 RUN rm /home/libssl.deb
 RUN rm /home/driver.deb
+ 
+# dirty fix for celery on python3.7
+COPY celery-rn.sh /home/celery-rn.sh
+RUN /home/celery-rn.sh
+RUN rm /home/celery-rn.sh
 
 # configure startup
 RUN chmod -R 777 /opt/startup
