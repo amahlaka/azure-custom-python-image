@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 echo "Replacing strings"
 TARGET=/usr/local/lib/python3.7/site-packages/celery/backends
